@@ -10,12 +10,12 @@ const sendEmail = async ({ to, subject, react }) => {
       from: "Finance app <onboarding@resend.dev>",
       to,
       subject,
-      html: "", //  Renders JSX email
+      html: "", // JSX email
     });
 
     return { success: true, data };
   } catch (error) {
-    console.error("❌ Error in sendEmail:", error);
+    console.error(" Error in sendEmail:", error);
     return { success: false, error: error.message };
   }
 };
