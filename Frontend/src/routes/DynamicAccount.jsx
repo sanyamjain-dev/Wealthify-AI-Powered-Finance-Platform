@@ -36,12 +36,12 @@ const DynamicAccount = () => {
   }, [revalidate]);
 
   return (
-    <div className="mt-32 ml-16 mr-12">
+    <div className="mt-28 ml-16 mr-12 ">
       {accountData ? (
         <div className="space-y-8 px-5 ">
           <div className="flex gap-4 items-end justify-between">
             <div>
-              <h1 className="text-5xl sm:text-6xl font-bold gradient-title capitalize">
+              <h1 className="text-5xl sm:text-6xl font-bold gradient-title capitalize ">
                 {accountData[0].name}
               </h1>
               <p className="text-muted-foreground">
