@@ -21,6 +21,9 @@ app.use(
     credentials: true, // Allow cookies/auth headers if needed
   })
 );
+app.get("/", (req, res) => {
+  res.send("Backend is working!");
+});
 app.use(express.urlencoded({ extended: true }));
 app.use("/", transactionRouter);
 app.use("/dashboard", dashboardRouter);
