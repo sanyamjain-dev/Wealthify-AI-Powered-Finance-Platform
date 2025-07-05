@@ -5,12 +5,12 @@ import { DayPicker } from "react-day-picker"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
-function Calendar({
+const Calendar=React.forwardRef(({
   className,
   classNames,
   showOutsideDays = true,
   ...props
-}) {
+},ref) =>{
   return (
     (<DayPicker
       showOutsideDays={showOutsideDays}
@@ -65,7 +65,7 @@ function Calendar({
       }}
       {...props} />)
   );
-}
+})
 Calendar.displayName = "Calendar"
 
 export { Calendar }

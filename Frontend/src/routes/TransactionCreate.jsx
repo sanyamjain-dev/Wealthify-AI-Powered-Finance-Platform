@@ -17,9 +17,6 @@ const TransactionCreate = () => {
   }, 100);
  
 
-  
-  
-
   useEffect(() => {
     if (!isSignedIn || !user) return;
     axios
@@ -66,6 +63,7 @@ const TransactionCreate = () => {
       setInitialData(transaction[0]);
     }
   }, [transaction]);
+  
   return Accounts? (
     editId && !initialData ? ( // If in edit mode but initialData isn't available, show loader
       <div className="mt-20">

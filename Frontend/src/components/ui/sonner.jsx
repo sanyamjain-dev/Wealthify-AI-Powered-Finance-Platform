@@ -1,9 +1,10 @@
 import { useTheme } from "next-themes"
+import React from "react";
 import { Toaster as Sonner } from "sonner"
 
-const Toaster = ({
+const Toaster = React.forwardRef(({
   ...props
-}) => {
+},ref) => {
   const { theme = "system" } = useTheme()
 
   return (
@@ -24,5 +25,5 @@ const Toaster = ({
       {...props} />)
   );
 }
-
+)
 export { Toaster }

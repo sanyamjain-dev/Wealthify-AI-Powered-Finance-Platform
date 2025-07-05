@@ -10,6 +10,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const Dashboard = () => {
+ 
   const { isSignedIn, user } = useUser();
   const [Accounts, setAccounts] = useState(null);
 
@@ -32,8 +33,8 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(`${REACT_APP_BACKEND_URL}/dashboard/account-fetch`, {
-        params: {
-          id: user.id,
+       params: {
+         id: user.id,
         },
       })
       .then((response) => {
@@ -105,6 +106,7 @@ const Dashboard = () => {
       {/*Accounts grid*/}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <CreateAccountDrawer
+        
           getAccountRefresh={getAccountRefresh}
           handleAccountRefresh={handleAccountRefresh}
         >

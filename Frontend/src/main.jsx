@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { ClerkProvider } from "@clerk/clerk-react";
+import { ClerkProvider, useUser } from "@clerk/clerk-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AuthLayout from "./routes/AuthLayout";
@@ -9,6 +9,7 @@ import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
 import DynamicAccount from "./routes/DynamicAccount";
 import TransactionCreate from "./routes/TransactionCreate";
+import DashboardLayout from "./routes/DashboardLayout";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -28,15 +29,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <ProtectedRoute />,
+        element: (
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        ),
       },
       {
-        path:"/dashboard/account/:id",
-        element:<DynamicAccount/>,
+        path: "/dashboard/account/:id",
+        element: (
+          <ProtectedRoute>
+            <DynamicAccount />
+          </ProtectedRoute>
+        ),
       },
       {
-        path:"/transaction/create",
-        element:<TransactionCreate/>
+        path: "/transaction/create",
+        element: (
+          <ProtectedRoute>
+            <TransactionCreate />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "*",
